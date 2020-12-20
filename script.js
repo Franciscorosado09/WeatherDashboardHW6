@@ -8,7 +8,8 @@ $("#submit").click(function (e) {
     
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCityEl + "&units=imperial&appid=" + apiKey;
-    var apiKey = "a6876375a644466f6ce5f8373db5ec2b";
+    var apiKey = "7fe5794b7606c9e504476c77a7789caa";
+
     var searchCityEl = $("#searchCity").val();
 
 
