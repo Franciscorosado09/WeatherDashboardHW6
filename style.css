@@ -1,6 +1,57 @@
 
 
 
+
+
+.uvLow {
+    background-color: greenyellow;
+    padding: 5px;
+    color: black;
+
+
+};
+
+.uvModerate {
+
+    background-color: yellow;
+    padding: 5px;
+    color: black;
+};
+
+
+
+.uvModerateHigh {
+
+    background-color: orange;
+    padding: 5px;
+    color: black;
+
+
+
+
+};
+
+
+.uvHigh {
+
+ background-color: red;
+ padding: 5px;
+ color: black;
+
+};
+
+.uvExtreme {
+
+
+    background-color: purple;
+    padding: 5px;
+    color: black;
+
+
+
+};
+
+
 .input-field {
 
     margin-top: 5%;
@@ -9,4 +60,4 @@
 
 
 
-}
+};

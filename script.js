@@ -76,18 +76,66 @@ $("#submit").click(function (e) {
       method: "GET"
     }).then(function (index) {
 
-      var uvIndex = $("<div>").text("UV Index: " + index.value);
+      var uvIndex = $("<p> UV Index: </p>")
+
+    console.log (uvIndex)
+
+      var indexValue = $( "<span>" + index.value + "</span>")
+
+      console.log (indexValue)
+
+      // $(uvIndex).append(indexValue);
+
+      
 
 
-      //need to hoist info up to next level
+      if (index.value < 3) { 
+        $(indexValue).addClass("uvLow");
+        
+      } else if (index.value >= 3 && index.value <= 5) { 
+
+        $(indexValue).addClass("uvModerate");
+        
+      } else if (index.value >= 6 && index.value <= 7) { 
+
+        $(indexValue).addClass("uvModerateHigh");
+
+
+      } else if (index.value >= 8 && index.value <= 10) { 
+
+        $(indexValue).addClass("uvHigh");
+
+
+      } else  if (index.value > 10) { 
+
+        $(indexValue).addClass("uvExtreme");
+      }
+
+
+      console.log (indexValue)
+
+      $(uvIndex).append(indexValue);
 
 
 
-      console.log(index);
 
 
 
-    })
+      $(windSpeed).append(uvIndex)
+
+
+      
+
+
+
+     
+
+
+
+    });
+
+
+    
 
   })
 
