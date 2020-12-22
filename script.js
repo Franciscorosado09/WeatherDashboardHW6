@@ -29,7 +29,7 @@ $("#submit").click(function (e) {
 
     console.log(response)
 
-    // city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+
 
     // City Name & Date
     var date = dayjs().format(" MM-DD-YYYY")
@@ -78,41 +78,40 @@ $("#submit").click(function (e) {
 
       var uvIndex = $("<p> UV Index: </p>")
 
-    console.log (uvIndex)
+      console.log(uvIndex)
 
-      var indexValue = $( "<span>" + index.value + "</span>")
+      var indexValue = $("<span>" + index.value + "</span>")
 
-      console.log (indexValue)
-
-      // $(uvIndex).append(indexValue);
-
-      
+      console.log(indexValue)
 
 
-      if (index.value < 3) { 
+
+
+
+      if (index.value < 3) {
         $(indexValue).addClass("uvLow");
-        
-      } else if (index.value >= 3 && index.value <= 5) { 
+
+      } else if (index.value >= 3 && index.value <= 5) {
 
         $(indexValue).addClass("uvModerate");
-        
-      } else if (index.value >= 6 && index.value <= 7) { 
+
+      } else if (index.value >= 6 && index.value <= 7) {
 
         $(indexValue).addClass("uvModerateHigh");
 
 
-      } else if (index.value >= 8 && index.value <= 10) { 
+      } else if (index.value >= 8 && index.value <= 10) {
 
         $(indexValue).addClass("uvHigh");
 
 
-      } else  if (index.value > 10) { 
+      } else if (index.value > 10) {
 
         $(indexValue).addClass("uvExtreme");
       }
 
 
-      console.log (indexValue)
+      console.log(indexValue)
 
       $(uvIndex).append(indexValue);
 
@@ -124,20 +123,46 @@ $("#submit").click(function (e) {
       $(windSpeed).append(uvIndex)
 
 
-      
 
 
 
-     
+
+
 
 
 
     });
 
 
-    
+    var fiveDayForcast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + apiKey;
+
+    $.ajax({
+      url: fiveDayForcast,
+      method: "GET",
+    }).then(function (fiveDay) {
+      {
+
+        console.log(fiveDay)
+
+
+
+
+      }
+
+
+
+    }); //End of 5 day forcast
+
+
+
+
 
   })
+
+
+
+  
+
 
 
 
