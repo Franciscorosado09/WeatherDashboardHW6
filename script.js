@@ -8,8 +8,10 @@
 
 $("#submit").click(function (e) {
   e.preventDefault();
-
-
+  
+  
+  
+  
 
   var searchCityEl = $("#searchCity").val();
   var apiKey = "7fe5794b7606c9e504476c77a7789caa";
@@ -40,6 +42,9 @@ $("#submit").click(function (e) {
     var weatherConditionsIcon = response.weather[0].icon;
     var weathericonURL = "http://openweathermap.org/img/wn/" + weatherConditionsIcon + "@2x.png"
     var weatherImage = $("<img src='" + weathericonURL + "'>")
+
+    // var description = $ ("<h6>").text(response.weather[0].description)
+    // $(descripton).appendTo(weatherImage);
 
 
     // Temprature
@@ -131,7 +136,7 @@ $("#submit").click(function (e) {
 
 
 
-    });
+    });//end of UV
 
 
     var fiveDayForcast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + apiKey;
@@ -143,6 +148,26 @@ $("#submit").click(function (e) {
       {
 
         console.log(fiveDay)
+
+        for (var i = 0; i < 6; i++) {
+
+          var day = dayjs().date();
+          var indivDay = (day + i);
+          var month= dayjs().format ("MM");
+
+          var dayMonth = $("<p>" + month + "/" + indivDay + "</p>")
+          var tempHigh = $ ("<p>" + fiveDay.daily[i].temp.max + " °F" + "</p>")
+          var tempLow = $ ("<p>" + fiveDay.daily[i].temp.min + " °F" + "</p>")
+          var fiveHumidity = $ ("<p>" + fiveDay.daily[i].humidity + " %" + "</p>")
+          var fiveDayImage = $ ('<img src= "https://openweathermap.org/img/wn/' + fiveDay.daily[i].weather[0].icon + '@2x.png" alt ="weatherIcon">')
+
+
+          $("#fiveDayInfo").append(dayMonth, fiveDayImage, tempHigh, tempLow, fiveHumidity);
+
+
+          // for code make sepereate DIV
+          
+        }
 
 
 
