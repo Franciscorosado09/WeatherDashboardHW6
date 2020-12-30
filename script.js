@@ -1,4 +1,4 @@
-// var searchCityEl = $("#searchCity").val();
+
 
 var previousSearches = [];
 var latestSearch = localStorage.getItem("city");
