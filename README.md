@@ -12,6 +12,11 @@ I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 ```
 
+## Links
+
+link to github: https://github.com/Franciscorosado09/WeatherDashboardHW6
+
+link to website: https://franciscorosado09.github.io/WeatherDashboardHW6/
 
 
 ## Mock-Up
