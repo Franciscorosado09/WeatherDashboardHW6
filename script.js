@@ -1,5 +1,3 @@
-
-
 var searchCityEl = $("#searchCity").val();
 
 
@@ -18,7 +16,7 @@ $("#submit").click(function (e) {
 
   var apiKey = "7fe5794b7606c9e504476c77a7789caa";
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCityEl + "&units=imperial&appid=" + apiKey;
-  
+
 
 
   $.ajax({
@@ -32,7 +30,7 @@ $("#submit").click(function (e) {
 
     console.log(response)
 
-    
+
 
 
 
@@ -40,7 +38,7 @@ $("#submit").click(function (e) {
     var date = dayjs().format(" MM-DD-YYYY")
     var cityName = $("<h1>").text(response.name + date);
 
-   var searchedCity = localStorage.setItem ('city', cityName); 
+
 
 
 
@@ -68,12 +66,16 @@ $("#submit").click(function (e) {
 
 
 
-
-
-
-
-
     $("#weatherInfo").append(cityName, weatherImage, temperature, humidity, windSpeed);
+
+
+
+    // Set Local Storage
+
+    var searchedCity = localStorage.setItem(cityName);
+
+    console.log (searchedCity)
+
 
 
     // UV Index
@@ -195,7 +197,32 @@ $("#submit").click(function (e) {
 
 
 
-    savedCities();
+    // savedCities();
+
+      var cityEl = $("<button>" + searchedCity + "</button>");
+      $(cityEl).attr("id", "submit");
+      $("#searchedCities").append(cityEl);
+      console.log (cityEl)
+
+
+    // function savedCities() {
+
+
+
+
+    //   var cityEl = $("<button>");
+    //   $(cityEl).attr("id", "submit");
+
+    //   $(cityEl).text(cityName);
+
+    //   $("#searchedCities").append(cityEl);
+
+
+    //   console.log(cityEl)
+    // };
+
+
+
 
   }) //AJAX original
 
@@ -213,35 +240,19 @@ $("#submit").click(function (e) {
 
 // Local Storage
 
-var savedSearches =JSON.parse(localStorage.getItem("searchedCity")) || [];
-
-function savedCities(){
-
-  
-
-  for (var i = 0; i < savedSearches.length; i++) {
-
-    
-    var cityEl = $("<button>");
-    $(cityEl).attr("id", "submit");
-
-    $(cityEl).text(cityName);
-    
-    $("#searchedCities").append(cityName);
 
 
-    if (i !== prevSearched.length) {
-
-      logCity.empty()
+// function savedCities(searchedCity) {
 
 
 
+//   var cityEl = $("<button>");
+//   $(cityEl).attr("id", "submit");
+
+//   $(cityEl).text(cityName);
+
+//   $("#searchedCities").append(cityEl);
 
 
-
-
-
-
-
-
-}}};
+//   console.log(cityEl)
+// };
