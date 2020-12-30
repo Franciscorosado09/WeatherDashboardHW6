@@ -245,7 +245,7 @@ function previousSearchedCities(searchCityEl){
 
   var list = $("<ul>");
   var citylist = $("<button>");
-  $(citylist).attr("class", "cityButton")
+  $(citylist).attr("id", "cityButton")
 
   $(citylist).text(searchCityEl);
   $(list).appendTo("#searchedCities");
@@ -256,11 +256,14 @@ function previousSearchedCities(searchCityEl){
 
 //When previous Search clicked event listener
 
-$(document).on("click", ".cityButton", function (e){
+$(document).on("click", "#cityButton", function (e){
   e.preventDefault();
   searchCityEl = $(e.target).text();
 
-  weather();
+  $("#weatherInfo").empty();
+  $("#fiveDayInfo").empty();
+
+  weather(searchCityEl);
 
 
 

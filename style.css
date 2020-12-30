@@ -28,6 +28,14 @@ h1 {
 
 }
 
+#cityButton{
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-align: center;
+    background-color: #ff81c1;
+    color: whitesmoke;
+
+}
+
 .input-field{
     width: 25% ;
 

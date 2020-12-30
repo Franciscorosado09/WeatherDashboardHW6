@@ -32,8 +32,7 @@ SO THAT I can plan a trip accordingly
  
 
 
-
-![ScreenShot1](https://user-images.githubusercontent.com/71673760/103327755-e4ed4d80-4a23-11eb-9db6-5f8aa94a7896.png)
+![ScreenShot1](https://user-images.githubusercontent.com/71673760/103364713-7d1f1d00-4a8c-11eb-9e35-f78cc407cb56.png)
 ![ScreenShot2](https://user-images.githubusercontent.com/71673760/103327557-0568d800-4a23-11eb-8a46-e695eabbaa22.png)
 
 
