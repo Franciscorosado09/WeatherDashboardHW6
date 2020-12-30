@@ -207,6 +207,15 @@ function weather(searchCityEl) {
 
     }); //End of 5 day forcast
 
+    // stop repeat of cities
+  if (!previousSearches.includes(searchCityEl)) {
+
+    previousSearchedCities(searchCityEl);
+  };
+
+  //push storage to HTML
+  previousSearches.push(searchCityEl)
+
 
 
 
@@ -216,14 +225,7 @@ function weather(searchCityEl) {
 
 
 
-  // stop repeat of cities
-  if (!previousSearches.includes(searchCityEl)) {
-
-    previousSearchedCities(searchCityEl);
-  };
-
-  //push storage to HTML
-  previousSearches.push(searchCityEl)
+  
 
 } //End of Weather Function
 
