@@ -1,4 +1,12 @@
-var searchCityEl = $("#searchCity").val();
+// var searchCityEl = $("#searchCity").val();
+
+var previousSearches = [];
+var latestSearch = localStorage.getItem("city");
+
+if (latestSearch != null) {
+  searchCityEl = latestSearch
+  weather(searchCityEl);
+}
 
 
 $("#submit").click(function (e) {
@@ -7,9 +15,18 @@ $("#submit").click(function (e) {
   $("#weatherInfo").empty();
   $("#fiveDayInfo").empty();
   var searchCityEl = $("#searchCity").val();
+  $("#searchCity").val("");
+
+  weather(searchCityEl);
+
+});
 
 
+function weather(searchCityEl) {
 
+
+  // Set Local Storage
+  localStorage.setItem("city", searchCityEl)
 
 
 
@@ -47,8 +64,7 @@ $("#submit").click(function (e) {
     var weathericonURL = "http://openweathermap.org/img/wn/" + weatherConditionsIcon + "@2x.png"
     var weatherImage = $("<img src='" + weathericonURL + "'>")
 
-    // var description = $ ("<h6>").text(response.weather[0].description)
-    // $(descripton).appendTo(weatherImage);
+
 
 
     // Temprature
@@ -70,11 +86,7 @@ $("#submit").click(function (e) {
 
 
 
-    // Set Local Storage
 
-    var searchedCity = localStorage.setItem(cityName);
-
-    console.log (searchedCity)
 
 
 
@@ -197,34 +209,23 @@ $("#submit").click(function (e) {
 
 
 
-    // savedCities();
-
-      var cityEl = $("<button>" + searchedCity + "</button>");
-      $(cityEl).attr("id", "submit");
-      $("#searchedCities").append(cityEl);
-      console.log (cityEl)
 
 
-    // function savedCities() {
+  }); //AJAX original
 
 
 
 
-    //   var cityEl = $("<button>");
-    //   $(cityEl).attr("id", "submit");
+  // stop repeat of cities
+  if (!previousSearches.includes(searchCityEl)) {
 
-    //   $(cityEl).text(cityName);
+    previousSearchedCities(searchCityEl);
+  };
 
-    //   $("#searchedCities").append(cityEl);
+  //push storage to HTML
+  previousSearches.push(searchCityEl)
 
-
-    //   console.log(cityEl)
-    // };
-
-
-
-
-  }) //AJAX original
+} //End of Weather Function
 
 
 
@@ -233,26 +234,32 @@ $("#submit").click(function (e) {
 
 
 
-
-
-
-});
 
 // Local Storage
 
 
 
-// function savedCities(searchedCity) {
+function previousSearchedCities(searchCityEl){
+
+  var list = $("<ul>");
+  var citylist = $("<button>");
+  $(citylist).attr("class", "cityButton")
+
+  $(citylist).text(searchCityEl);
+  $(list).appendTo("#searchedCities");
+  $(citylist).appendTo(list)
+
+};
+
+
+//When previous Search clicked event listener
+
+$(document).on("click", ".cityButton", function (e){
+  e.preventDefault();
+  searchCityEl = $(e.target).text();
+
+  weather();
 
 
 
-//   var cityEl = $("<button>");
-//   $(cityEl).attr("id", "submit");
-
-//   $(cityEl).text(cityName);
-
-//   $("#searchedCities").append(cityEl);
-
-
-//   console.log(cityEl)
-// };
+});
